@@ -28,7 +28,7 @@ export async function PATCH(request: NextRequest) {
   if (["active", "suspended"].includes(status)) changes.status = status;
   const { data, error: updateError } = await neonDb.from("facility_members").update(changes)
     .eq("facility_id", membership.facility_id).eq("user_id", userId).select("user_id,role,status").maybeSingle();
-  if (updateError || !data) return NextResponse.json({ error: "Only a facility administrator can change another memberâ€™s role or status." }, { status: 403 });
+  if (updateError || !data) return NextResponse.json({ error: "Only a facility administrator can change another member’s role or status." }, { status: 403 });
   return NextResponse.json({ member: data });
 }
 

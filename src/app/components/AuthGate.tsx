@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
@@ -12,7 +12,7 @@ export default function AuthGate({ children }: { children: React.ReactNode }) {
     let active = true;
     const signOut = (event: MouseEvent) => {
       const target = event.target;
-      if (!(target instanceof Element) || !target.closest(".signout-link")) return;
+      if (!(target instanceof Element) || (!target.closest(".signout-link") && !target.closest(".topbar-signout") && !target.closest(".cw-topbar-signout"))) return;
       event.preventDefault(); event.stopImmediatePropagation();
       createClient().auth.signOut().finally(() => { localStorage.removeItem("mortusoft-demo-session"); router.replace("/sign-in"); router.refresh(); });
     };
@@ -30,7 +30,7 @@ export default function AuthGate({ children }: { children: React.ReactNode }) {
     prepare().catch(() => router.replace("/sign-in"));
     return () => { active = false; document.removeEventListener("click", signOut, true); };
   }, [router]);
-  if (!ready) return <div className="auth-loading"><span className="brand-mark"><i/><i/><i/></span><span>Preparing your workspaceâ€¦</span></div>;
+  if (!ready) return <div className="auth-loading"><span className="brand-mark"><i/><i/><i/></span><span>Preparing your workspace…</span></div>;
   return children;
 }
 

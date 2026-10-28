@@ -32,6 +32,9 @@
   flex-direction: column;
   box-shadow: 2px 0 18px rgba(7, 23, 57, 0.03);
   border-right: 1px solid #DDD5CB;
+  overflow-y: auto !important;
+  max-height: 100vh !important;
+  scrollbar-width: thin;
 }
 
 .cw-brand {
@@ -406,3 +409,45 @@
   background: #937657;
   transform: translateY(-1px);
 }
+
+.cw-topbar-signout {
+  margin-left: 14px;
+  padding: 5px 12px;
+  border: 1px solid #DDD5CB;
+  border-radius: 6px;
+  background: #ffffff;
+  color: #4B6382;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.cw-topbar-signout:hover {
+  background: #FAF8F5;
+  color: #8b3a3a;
+  border-color: rgba(139, 58, 58, 0.3);
+}
+
+.cw-row-action {
+  background: transparent;
+  border: 1px solid #DDD5CB;
+  border-radius: 6px;
+  color: #4B6382;
+  font-weight: 700;
+  font-size: 13px;
+  width: 28px;
+  height: 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.cw-row-action:hover {
+  background: #4B6382;
+  color: #FAF8F5;
+  border-color: #4B6382;
+}
+

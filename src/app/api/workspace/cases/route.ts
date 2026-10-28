@@ -28,7 +28,7 @@ export async function POST(request: NextRequest) {
   const facilityId = String(input?.facilityId ?? "");
   const personName = String(input?.personName ?? "").trim();
   const admissionAt = String(input?.admissionAt ?? "");
-  if (!facilityId || personName.length < 2 || !Number.isFinite(Date.parse(admissionAt))) return NextResponse.json({ error: "Provide the deceased personâ€™s name and admission date." }, { status: 400 });
+  if (!facilityId || personName.length < 2 || !Number.isFinite(Date.parse(admissionAt))) return NextResponse.json({ error: "Provide the deceased person’s name and admission date." }, { status: 400 });
   const kin = input?.nextOfKin && typeof input.nextOfKin === "object" && !Array.isArray(input.nextOfKin)
     ? input.nextOfKin
     : { name: String(input?.kinName ?? "").trim(), phone: String(input?.kinPhone ?? "").trim() };
